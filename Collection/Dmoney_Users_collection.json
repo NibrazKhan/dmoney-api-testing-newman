@@ -137,6 +137,50 @@
 			"response": []
 		},
 		{
+			"name": "No Password given",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"pm.test(\"User inputs wrong password\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).contains(\"Password incorrect\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"salman@grr.la\",\r\n    \"password\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/user/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get User List",
 			"event": [
 				{
@@ -280,6 +324,25 @@
 							"pm.collectionVariables.set(\"nid\",nid);\r",
 							"// pm.environment.set(\"phoneNumber\",phoneNumber);\r",
 							"// pm.environment.set(\"nid\",nid);\r",
+							"// var nid=_.random(1000000,9999999);\r",
+							"//Calling another API and setting the variable method\r",
+							"// const reqObject={\r",
+							"//     url:\"https://randomuser.me/api\",\r",
+							"//     method:'GET',\r",
+							"//     header:'Content:Type:application/json'\r",
+							"// };\r",
+							"// pm.sendRequest(reqObject,(err,res)=>{\r",
+							"//     let{ results }=res.json();\r",
+							"//     let  name=results[0].name.first+\" \"+results[0].name.last;\r",
+							"//     let email=results[0].email;\r",
+							"//     let phone_number=results[0].phone;\r",
+							"//     let address=results[0].location.city+\",\"+results[0].location.country;\r",
+							"//     pm.collectionVariables.set('name',name);\r",
+							"//     pm.collectionVariables.set('email',email);\r",
+							"//     pm.collectionVariables.set('phone_number',phone_number);\r",
+							"//     pm.collectionVariables.set('nid',nid);\r",
+							"    \r",
+							"// })\r",
 							""
 						],
 						"type": "text/javascript"
@@ -386,7 +449,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n         \r\n            \"name\": \"Sally Moore\",\r\n            \"email\": \"Mayra54@yahoo.com\",\r\n            \"password\": \"1234\",\r\n            \"phone_number\": \"01528377880\",\r\n            \"nid\": \"72b1f732-7417-4e45-a56a-3a5d109b8533\",\r\n            \"role\": \"Customer\"\r\n\r\n\r\n}",
+					"raw": " {\r\n         \r\n        \"name\": \"Guillermo Beer\",\r\n        \"email\": \"Madonna0@yahoo.com\",\r\n        \"password\": \"fTTTI_KdnKnjv5R\",\r\n        \"phone_number\": \"01713648066\",\r\n        \"nid\": \"6413648066\",\r\n        \"role\": \"Customer\"\r\n\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -810,12 +873,17 @@
 			"response": []
 		},
 		{
-			"name": "Already deleted User Copy",
+			"name": "Searching the deleted user",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
 							"pm.test(\"User not found for searching already deleted user\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.user).to.eql(null);\r",
@@ -889,19 +957,19 @@
 		},
 		{
 			"key": "token",
-			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbG1hbkBncnIubGEiLCJwYXNzd29yZCI6IjEyMzQiLCJpYXQiOjE2NTU2NjE5OTIsImV4cCI6MTY1NTY2Mzc5Mn0.D-p4T2Z8LakRjLojpbVEVBoUusVh4n-GPfZYdyEpzdY"
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNhbG1hbkBncnIubGEiLCJwYXNzd29yZCI6IjEyMzQiLCJpYXQiOjE2NTU5MjU4OTUsImV4cCI6MTY1NTkyNzY5NX0.GMTWaVT2jfGGMMIqiLBYJq--XyMi3hkjpKc9mfIKtLQ"
 		},
 		{
 			"key": "phoneNumber",
-			"value": "01712055451"
+			"value": "01718621940"
 		},
 		{
 			"key": "nid",
-			"value": "6412055451"
+			"value": "6418621940"
 		},
 		{
 			"key": "id",
-			"value": 1970
+			"value": 2309
 		},
 		{
 			"key": "secret_key",
