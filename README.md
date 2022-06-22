@@ -7,7 +7,8 @@
  npm i
  npm test
  ```
- 
+ - Read the project [Documentation](https://documenter.getpostman.com/view/21520037/UzBmN7Uv).
+
 Report is generated using Newman.
 
  
