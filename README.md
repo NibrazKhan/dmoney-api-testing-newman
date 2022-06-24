@@ -1,7 +1,7 @@
 ## dmoney-api-testing-newman
  Automated dmoney API using Postman where test cases are added for Login,Creating users,Searching users and performed testing for CRUD operations.
  Steps to run this project:
- - Clone this project
+ - Clone this project or export using this collection [link](mainNode.next=oldHead).
  - Give the following commands by opening terminal in the project folder:
  ```
  npm i
